@@ -6,10 +6,10 @@
     <title>Lesson 9 Live Teaching Slides: Tā jīnnián èrshí suì</title>
     <style>
         :root {
-            --bg-color: #F8FAFC;         /* Morandi Grey-Blue */
-            --primary-color: #1E3A8A;    /* Deep Navy Blue */
+            --bg-color: #F8FAFC;         
+            --primary-color: #1E3A8A;    
             --primary-hover: #1D4ED8;    
-            --accent-color: #D97706;     /* Warm Amber */
+            --accent-color: #D97706;     
             --card-bg: #FFFFFF;          
             --border-color: #E2E8F0;     
             --text-main: #1E293B;        
@@ -24,7 +24,7 @@
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: var(--bg-color); color: var(--text-main); display: flex; min-height: 100vh; }
 
         /* SIDEBAR TEACHING MENU */
-        .sidebar { width: 290px; background-color: var(--primary-color); color: white; position: fixed; top: 0; bottom: 0; left: 0; display: flex; flex-direction: column; box-shadow: 4px 0 10px rgba(0,0,0,0.08); z-index: 100; }
+        .sidebar { width: 300px; background-color: var(--primary-color); color: white; position: fixed; top: 0; bottom: 0; left: 0; display: flex; flex-direction: column; box-shadow: 4px 0 10px rgba(0,0,0,0.08); z-index: 100; }
         .sidebar-header { padding: 2rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
         .sidebar-header h1 { font-size: 1.35rem; margin-bottom: 6px; color: #FFFFFF; }
         .sidebar-header p { font-size: 0.85rem; color: #93C5FD; }
@@ -34,7 +34,7 @@
         .sidebar-menu button.active { background-color: rgba(255,255,255,0.18); color: white; border-left-color: var(--accent-color); font-weight: bold; }
 
         /* MAIN SLIDE STAGE */
-        .main-content { margin-left: 290px; flex-grow: 1; padding: 2.5rem 3.5rem; max-width: 1100px; }
+        .main-content { margin-left: 300px; flex-grow: 1; padding: 2.5rem 3.5rem; max-width: 1100px; }
         .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -53,9 +53,12 @@
         .vocab-num { font-weight: bold; color: var(--accent-color); width: 8%; }
         .vocab-pinyin { font-weight: bold; color: var(--primary-color); width: 22%; }
         .vocab-collo { color: var(--text-sub); margin-bottom: 4px; }
-        .collo-target { font-weight: bold; color: #EA580C; /* Orange/Amber Highlight */ }
+        .collo-target { font-weight: bold; color: #EA580C; }
         .vocab-sent { color: var(--primary-color); font-weight: 500; }
         .vocab-note { color: var(--accent-color); font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
+
+        /* NEW VOCAB HIGHLIGHT IN TEXTS */
+        .hl { font-weight: bold; color: #EA580C; background-color: #FFF7ED; padding: 0 3px; border-radius: 4px; border-bottom: 1px solid #FFEDD5; }
 
         /* Q&A KEYWORDS HIGHLIGHT */
         .qw { font-weight: bold; color: #9333EA; background-color: #F3E8FF; padding: 0 4px; border-radius: 4px; }
@@ -66,6 +69,7 @@
         .error-example { color: var(--error-red); font-weight: bold; text-decoration: line-through; }
         .dialogue-box { background-color: #FFFFFF; border-left: 4px solid var(--accent-color); padding: 0.8rem 1rem; margin-bottom: 0.8rem; border-radius: 0 6px 6px 0; }
         .speaker { font-weight: bold; color: var(--primary-color); }
+        
         .dlg-prompt-title { font-size: 0.98rem; font-weight: bold; color: var(--accent-color); margin: 1.2rem 0 0.4rem 0; }
         .dlg-turn { padding: 0.55rem 0.8rem; margin-bottom: 0.35rem; background-color: #F8FAFC; border-left: 3px solid var(--primary-color); border-radius: 0 4px 4px 0; font-size: 0.98rem; }
         .dlg-turn-ans { padding: 0.55rem 0.8rem; margin-bottom: 0.35rem; background-color: #EFF6FF; border-left: 3px solid var(--answer-blue); border-radius: 0 4px 4px 0; font-size: 0.98rem; color: #1E40AF; }
@@ -120,11 +124,12 @@
             <li><button class="tab-btn" onclick="openTab(event, 'nav-2')">⏰ Time & Class Schedule</button></li>
             <li><button class="tab-btn" onclick="openTab(event, 'nav-3')">📅 Text 1 (Lines 1-8)</button></li>
             <li><button class="tab-btn" onclick="openTab(event, 'nav-4')">🎂 Age, Birthplace & 12 Zodiacs</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-5')">🎉 Party Items & Grammar Supplement</button></li>
+            <li><button class="tab-btn" onclick="openTab(event, 'nav-5')">🎉 Party Items & Grammar 1</button></li>
             <li><button class="tab-btn" onclick="openTab(event, 'nav-6')">💬 Text 1 (Lines 9-17)</button></li>
             <li><button class="tab-btn" onclick="openTab(event, 'tab-break')">☕ Mid-Class Break</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-8')">🍷 Celebrations & Text 2 (Lines 1-9)</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-9')">📝 Wrap-up & Homework</button></li>
+            <li><button class="tab-btn" onclick="openTab(event, 'nav-8')">🍷 Celebrations Vocab & Grammar 2</button></li>
+            <li><button class="tab-btn" onclick="openTab(event, 'nav-9')">💬 Text 2 (Lines 1-9)</button></li>
+            <li><button class="tab-btn" onclick="openTab(event, 'nav-10')">📝 Wrap-up & Homework</button></li>
         </ul>
     </nav>
 
@@ -209,7 +214,6 @@
                 </div>
             </div>
 
-            <!-- KEY Q&A REINFORCEMENT -->
             <div class="card">
                 <div class="card-title">🎯 Key Q&A Reinforcement: Asking Dates</div>
                 <div class="qa-card">
@@ -361,21 +365,21 @@
                     </svg>
                     <div style="text-align:left; margin-left:10px;">
                         <h3 style="color:var(--primary-color);">Making an Appointment</h3>
-                        <p style="font-size:0.9rem; color:var(--text-sub);">Finding a free time slot in the calendar.</p>
+                        <p style="font-size:0.9rem; color:var(--text-sub);">New vocabularies are highlighted in <span style="color:#EA580C; font-weight:bold;">Orange</span>.</p>
                     </div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-title">Text 1: Making an Appointment (Lines 1–8)</div>
-                <div class="dialogue-box">1. <span class="speaker">Wáng Xiǎoyún:</span> Lín Nà, nǐ zěnmeyàng?<span class="translation">(Lin Na, how are you?)</span></div>
-                <div class="dialogue-box">2. <span class="speaker">Lín Nà:</span> Wǒ jīntiān hěn máng.<span class="translation">(I am very busy today.)</span></div>
-                <div class="dialogue-box">3. <span class="speaker">Wáng Xiǎoyún:</span> Míngtiān shàngwǔ nǐ yǒu méiyǒu kè?<span class="translation">(Do you have class tomorrow morning?)</span></div>
-                <div class="dialogue-box">4. <span class="speaker">Lín Nà:</span> Míngtiān shì xīngqī jǐ?<span class="translation">(What day of the week is tomorrow?)</span></div>
+                <div class="dialogue-box">1. <span class="speaker">Wáng Xiǎoyún:</span> Lín Nà, nǐ <span class="hl">zěnmeyàng</span>?<span class="translation">(Lin Na, how are you?)</span></div>
+                <div class="dialogue-box">2. <span class="speaker">Lín Nà:</span> Wǒ <span class="hl">jīntiān</span> hěn máng.<span class="translation">(I am very busy today.)</span></div>
+                <div class="dialogue-box">3. <span class="speaker">Wáng Xiǎoyún:</span> Míngtiān <span class="hl">shàngwǔ</span> nǐ yǒu méiyǒu <span class="hl">kè</span>?<span class="translation">(Do you have class tomorrow morning?)</span></div>
+                <div class="dialogue-box">4. <span class="speaker">Lín Nà:</span> Míngtiān shì <span class="hl">xīngqī</span> jǐ?<span class="translation">(What day of the week is tomorrow?)</span></div>
                 <div class="dialogue-box">5. <span class="speaker">Wáng Xiǎoyún:</span> Míngtiān shì xīngqīsì.<span class="translation">(Tomorrow is Thursday.)</span></div>
-                <div class="dialogue-box">6. <span class="speaker">Lín Nà:</span> Wǒ shàngwǔ, xiàwǔ dōu yǒu kè.<span class="translation">(I have classes both morning and afternoon.)</span></div>
-                <div class="dialogue-box">7. <span class="speaker">Wáng Xiǎoyún:</span> Nǐ xīngqīrì yǒu shíjiān ma?<span class="translation">(Do you have time on Sunday?)</span></div>
-                <div class="dialogue-box">8. <span class="speaker">Lín Nà:</span> Xīngqīrì shì jǐ hào?<span class="translation">(What date is Sunday?)</span></div>
+                <div class="dialogue-box">6. <span class="speaker">Lín Nà:</span> Wǒ shàngwǔ, <span class="hl">xiàwǔ</span> dōu yǒu kè.<span class="translation">(I have classes both morning and afternoon.)</span></div>
+                <div class="dialogue-box">7. <span class="speaker">Wáng Xiǎoyún:</span> Nǐ <span class="hl">xīngqīrì</span> yǒu shíjiān ma?<span class="translation">(Do you have time on Sunday?)</span></div>
+                <div class="dialogue-box">8. <span class="speaker">Lín Nà:</span> Xīngqīrì shì jǐ <span class="hl">hào</span>?<span class="translation">(What date is Sunday?)</span></div>
             </div>
         </section>
 
@@ -448,7 +452,6 @@
                 </div>
             </div>
 
-            <!-- KEY Q&A REINFORCEMENT -->
             <div class="card">
                 <div class="card-title">🎯 Key Q&A Reinforcement: Age, Birthplace & Zodiac</div>
                 <div class="qa-card">
@@ -472,18 +475,16 @@
             </div>
         </section>
 
-        <!-- PARTY ITEMS & GRAMMAR SUPPLEMENT -->
+        <!-- PARTY ITEMS & GRAMMAR SUPPLEMENT 1 -->
         <section id="nav-5" class="tab-content">
             <div class="content-header">
-                <h2>Party Items & Grammar Supplement (Pg 132–133, 143)</h2>
+                <h2>Party Items & Grammar Supplement 1 (Pg 132–133, 143)</h2>
             </div>
 
-            <!-- FLAT VECTOR SVG NOUN ILLUSTRATIONS -->
             <div class="card">
                 <div class="card-title">🎨 Visual Nouns & Quantifiers</div>
                 <div class="flat-illustration-grid">
                     <div class="illustration-card">
-                        <!-- FLAT SVG CAKE -->
                         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="8" y="32" width="48" height="24" rx="4" fill="#FDE68A"/>
                             <path d="M8 32C12 28 20 28 24 32C28 28 36 28 40 32C44 28 52 28 56 32V40H8V32Z" fill="#F43F5E"/>
@@ -495,7 +496,6 @@
                     </div>
 
                     <div class="illustration-card">
-                        <!-- FLAT SVG WINE BOTTLE -->
                         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="26" y="8" width="12" height="12" rx="2" fill="#991B1B"/>
                             <path d="M26 20L18 32V56H46V32L38 20H26Z" fill="#7F1D1D"/>
@@ -506,7 +506,6 @@
                     </div>
 
                     <div class="illustration-card">
-                        <!-- FLAT SVG BOTTLE -->
                         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="28" y="10" width="8" height="8" fill="#1D4ED8"/>
                             <path d="M26 18L20 28V54H44V28L38 18H26Z" fill="#60A5FA"/>
@@ -525,10 +524,9 @@
                     <tbody>
                         <tr><td class="vocab-num">#11</td><td class="vocab-pinyin">shēngri</td><td>birthday</td><td><div class="vocab-collo">tā de <span class="collo-target">shēngri</span></div><div class="vocab-sent">Zhù nǐ shēngri kuàilè!</div></td></tr>
                         <tr><td class="vocab-num">#15</td><td class="vocab-pinyin">jùhuì</td><td>get-together</td><td><div class="vocab-collo">yǒu yí ge <span class="collo-target">jùhuì</span></div><div class="vocab-sent">Wǒmen yǒu yí ge jùhuì.</div></td></tr>
-                        <tr><td class="vocab-num">#16</td><td class="vocab-pinyin">zhùhè</td><td>congratulate</td><td><div class="vocab-collo"><span class="collo-target">zhùhè</span> tā de shēngri</div><div class="vocab-sent">Wǒmen zhùhè tā de shēngri.</div></td></tr>
                         <tr><td class="vocab-num">#17</td><td class="vocab-pinyin">cānjiā</td><td>attend, join</td><td><div class="vocab-collo"><span class="collo-target">cānjiā</span> jùhuì</div><div class="vocab-sent">Wǒ dāngrán cānjiā.</div></td></tr>
                         <tr><td class="vocab-num">#18</td><td class="vocab-pinyin">le</td><td>(particle)</td><td><div class="vocab-collo">tài hǎo <span class="collo-target">le</span>!</div><div class="vocab-sent">Tài hǎo le! Wǒ cānjiā.</div></td></tr>
-                        <tr><td class="vocab-num">#19</td><td class="vocab-pinyin">guò</td><td>celebrate / pass</td><td><div class="vocab-collo"><span class="collo-target">guò</span> shēngri</div><div class="vocab-sent">Zhōngguó rén guò shēngri chī dàngāo ma?</div></td></tr>
+                        <tr><td class="vocab-num">#19</td><td class="vocab-pinyin">guò</td><td>celebrate / pass</td><td><div class="vocab-collo"><span class="collo-target">guò</span> shēngri</div><div class="vocab-sent">Zhōngguó rén guò shēngri de shíhou chī dàngāo ma?</div></td></tr>
                         <tr><td class="vocab-num">#20</td><td class="vocab-pinyin">chī</td><td>to eat</td><td><div class="vocab-collo"><span class="collo-target">chī</span> dàngāo / chī kǎoyā</div><div class="vocab-sent">Wǒmen chī Běijīng kǎoyā.</div></td></tr>
                         <tr><td class="vocab-num">#21</td><td class="vocab-pinyin">dàngāo</td><td>cake</td><td><div class="vocab-collo">yí ge dà <span class="collo-target">dàngāo</span></div><div class="vocab-sent">Wǒ mǎi yí ge dà dàngāo.</div></td></tr>
                         <tr><td class="vocab-num">#22</td><td class="vocab-pinyin">mǎi</td><td>to buy</td><td><div class="vocab-collo"><span class="collo-target">mǎi</span> dàngāo / mǎi jiǔ</div><div class="vocab-sent">Wǒ mǎi liǎng píng hóng pútaojiǔ.</div></td></tr>
@@ -538,7 +536,7 @@
                 </table>
             </div>
 
-            <!-- GRAMMAR SUPPLEMENT: GUO / DE SHIHOU & ZHUHE VS ZHU -->
+            <!-- GRAMMAR SUPPLEMENT 1: GUO / DE SHIHOU -->
             <div class="card">
                 <div class="card-title">💡 Grammar Supplement 1: "#19 guò" & "... de shíhou"</div>
                 <div class="rule-box">
@@ -555,14 +553,6 @@
                     <div class="vocab-note" style="margin-top:10px;">
                         ⚠️ Distinction: "<span class="qw">shénme shíhou</span>" is a Question Word (When?), whereas "... de shíhou" is a Time Clause (When doing something...).
                     </div>
-                </div>
-
-                <div class="card-title" style="margin-top: 1.8rem; font-size:1.05rem;">💡 Grammar Supplement 2: "zhùhè" vs "zhù"</div>
-                <div class="rule-box">
-                    <div><strong>• zhùhè (to congratulate on an occasion/event):</strong> Verb + Event</div>
-                    <div style="color:var(--primary-color); margin-top:2px;">e.g., Wǒmen <strong>zhùhè tā de shēngri</strong>. <span class="translation">(We congratulate his birthday.)</span></div>
-                    <div style="margin-top:8px;"><strong>• zhù (to wish someone something):</strong> Verb + Person + Wish</div>
-                    <div style="color:var(--primary-color); margin-top:2px;">e.g., <strong>Zhù nǐ</strong> shēngri kuàilè! <span class="translation">(Wish you a happy birthday!)</span></div>
                 </div>
             </div>
         </section>
@@ -588,22 +578,22 @@
                     </svg>
                     <div style="text-align:left; margin-left:10px;">
                         <h3 style="color:var(--primary-color);">Planning the Party</h3>
-                        <p style="font-size:0.9rem; color:var(--text-sub);">Discussing age and birthday wishes.</p>
+                        <p style="font-size:0.9rem; color:var(--text-sub);">New vocabularies are highlighted in <span style="color:#EA580C; font-weight:bold;">Orange</span>.</p>
                     </div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-title">Text 1: Age & Party Details (Lines 9–17)</div>
-                <div class="dialogue-box">9. <span class="speaker">Wáng Xiǎoyún:</span> Xīngqīrì shì shíyuè èrshíqī hào, shì Sòng Huá de shēngri.<span class="translation">(Sunday is October 27th, it is Song Hua's birthday.)</span></div>
-                <div class="dialogue-box">10. <span class="speaker">Lín Nà:</span> Shì ma? Tā jīnnián duō dà?<span class="translation">(Really? How old is he this year?)</span></div>
-                <div class="dialogue-box">11. <span class="speaker">Wáng Xiǎoyún:</span> Sòng Huá 1982 nián shíyuè èrshíqī rì chūshēng, shǔ gǒu. Tā jīnnián èrshí suì.<span class="translation">(Song Hua was born on Oct 27, 1982, in the year of the dog. He is 20.)</span></div>
+                <div class="dialogue-box">9. <span class="speaker">Wáng Xiǎoyún:</span> Xīngqīrì shì shíyuè èrshíqī hào, shì Sòng Huá de <span class="hl">shēngri</span>.<span class="translation">(Sunday is October 27th, it is Song Hua's birthday.)</span></div>
+                <div class="dialogue-box">10. <span class="speaker">Lín Nà:</span> Shì ma? Tā <span class="hl">jīnnián duō dà</span>?<span class="translation">(Really? How old is he this year?)</span></div>
+                <div class="dialogue-box">11. <span class="speaker">Wáng Xiǎoyún:</span> Sòng Huá 1982 <span class="hl">nián</span> shíyuè èrshíqī rì <span class="hl">chūshēng</span>, <span class="hl">shǔ</span> gǒu. Tā jīnnián èrshí <span class="hl">suì</span>.<span class="translation">(Song Hua was born on Oct 27, 1982, in the year of the dog. He is 20.)</span></div>
                 <div class="dialogue-box">12. <span class="speaker">Lín Nà:</span> Tā shì nǎr rén?<span class="translation">(Where is he from?)</span></div>
-                <div class="dialogue-box">13. <span class="speaker">Wáng Xiǎoyún:</span> Tā shì Běijīng rén. Tā bàba, māma dōu zài Běijīng. Xīngqīrì xiàwǔ wǒmen yǒu yí ge jùhuì, zhùhè tā de shēngri. Lìbō, Dàwéi dōu qù, nǐ cānjiā bu cānjiā?<span class="translation">(He is from Beijing. His dad and mom are both in Beijing. Sunday afternoon we have a party to celebrate his birthday. Libo and Dawei are both going, are you participating?)</span></div>
-                <div class="dialogue-box">14. <span class="speaker">Lín Nà:</span> Tài hǎo le! Wǒ dāngrán cānjiā. Zhōngguó rén guò shēngri de shíhou chī dàngāo ma?<span class="translation">(Great! Of course I will participate. Do Chinese people eat cake when celebrating birthdays?)</span></div>
+                <div class="dialogue-box">13. <span class="speaker">Wáng Xiǎoyún:</span> Tā shì <span class="hl">Běijīng</span> rén. Tā bàba, māma dōu zài Běijīng. Xīngqīrì xiàwǔ wǒmen yǒu yí ge <span class="hl">jùhuì</span>, <span class="hl">zhùhè</span> tā de shēngri. Lìbō, Dàwéi dōu qù, nǐ <span class="hl">cānjiā</span> bu cānjiā?<span class="translation">(He is from Beijing. His dad and mom are both in Beijing. Sunday afternoon we have a party to celebrate his birthday. Libo and Dawei are both going, are you participating?)</span></div>
+                <div class="dialogue-box">14. <span class="speaker">Lín Nà:</span> Tài hǎo <span class="hl">le</span>! Wǒ dāngrán cānjiā. Zhōngguó rén <span class="hl">guò</span> shēngri de shíhou <span class="hl">chī</span> <span class="hl">dàngāo</span> ma?<span class="translation">(Great! Of course I will participate. Do Chinese people eat cake when celebrating birthdays?)</span></div>
                 <div class="dialogue-box">15. <span class="speaker">Wáng Xiǎoyún:</span> Chī dàngāo.<span class="translation">(Yes, eat cake.)</span></div>
-                <div class="dialogue-box">16. <span class="speaker">Lín Nà:</span> Wǒ mǎi yí ge dà dàngāo, hǎo ma?<span class="translation">(I'll buy a big cake, okay?)</span></div>
-                <div class="dialogue-box">17. <span class="speaker">Wáng Xiǎoyún:</span> Hǎo a. Wǒ mǎi liǎng píng hóng pútaojiǔ.<span class="translation">(Okay. I'll buy two bottles of red wine.)</span></div>
+                <div class="dialogue-box">16. <span class="speaker">Lín Nà:</span> Wǒ <span class="hl">mǎi</span> yí ge dà dàngāo, hǎo ma?<span class="translation">(I'll buy a big cake, okay?)</span></div>
+                <div class="dialogue-box">17. <span class="speaker">Wáng Xiǎoyún:</span> Hǎo a. Wǒ mǎi liǎng <span class="hl">píng</span> <span class="hl">hóng pútaojiǔ</span>.<span class="translation">(Okay. I'll buy two bottles of red wine.)</span></div>
             </div>
         </section>
 
@@ -618,10 +608,10 @@
             </div>
         </section>
 
-        <!-- CELEBRATIONS & TEXT 2 -->
+        <!-- CELEBRATIONS VOCAB & GRAMMAR 2 -->
         <section id="nav-8" class="tab-content">
             <div class="content-header">
-                <h2>Text 2: Lines 1–9 (Pg 134–135)</h2>
+                <h2>Celebrations Vocab & Grammar 2 (Pg 135)</h2>
             </div>
 
             <!-- FLAT VECTOR NOUN ILLUSTRATIONS FOR TEXT 2 -->
@@ -629,7 +619,6 @@
                 <div class="card-title">🎨 Celebration Food Nouns</div>
                 <div class="flat-illustration-grid">
                     <div class="illustration-card">
-                        <!-- FLAT SVG ROAST DUCK -->
                         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <ellipse cx="32" cy="38" rx="22" ry="14" fill="#D97706"/>
                             <path d="M42 28C42 22 36 16 30 16C26 16 22 18 22 22C22 26 26 28 32 30" stroke="#B45309" stroke-width="4" stroke-linecap="round"/>
@@ -640,7 +629,6 @@
                     </div>
 
                     <div class="illustration-card">
-                        <!-- FLAT SVG LONGEVITY NOODLES -->
                         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 28C12 42 20 52 32 52C44 52 52 42 52 28H12Z" fill="#E2E8F0"/>
                             <path d="M20 28C20 20 24 16 32 16C40 16 44 20 44 28" stroke="#F59E0B" stroke-width="3"/>
@@ -663,26 +651,54 @@
                         <tr><td class="vocab-num">#4</td><td class="vocab-pinyin">hē</td><td>to drink</td><td><div class="vocab-collo"><span class="collo-target">hē</span> hóng pútaojiǔ</div><div class="vocab-sent">Wǒmen hē shénme jiǔ?</div></td></tr>
                         <tr><td class="vocab-num">#5</td><td class="vocab-pinyin">zài</td><td>again</td><td><div class="vocab-collo"><span class="collo-target">zài</span> lái / zài chī</div><div class="vocab-sent">Wǒmen zài lái chī shòumiàn.</div></td></tr>
                         <tr><td class="vocab-num">#6</td><td class="vocab-pinyin">shòumiàn</td><td>longevity noodles</td><td><div class="vocab-collo">chī <span class="collo-target">shòumiàn</span></div><div class="vocab-sent">Wǒmen hái chī shòumiàn.</div></td></tr>
+                        <tr><td class="vocab-num">#16</td><td class="vocab-pinyin">zhùhè</td><td>congratulate</td><td><div class="vocab-collo"><span class="collo-target">zhùhè</span> tā de shēngri</div><div class="vocab-sent">Wǒmen zhùhè tā de shēngri.</div></td></tr>
                     </tbody>
                 </table>
             </div>
 
+            <!-- GRAMMAR SUPPLEMENT 2: ZHUHE VS ZHU (Moved Here) -->
+            <div class="card">
+                <div class="card-title">💡 Grammar Supplement 2: "zhùhè" vs "zhù"</div>
+                <div class="rule-box">
+                    <div><strong>• zhùhè (to congratulate on an occasion/event):</strong> Verb + Event</div>
+                    <div style="color:var(--primary-color); margin-top:2px;">e.g., Wǒmen <strong>zhùhè tā de shēngri</strong>. <span class="translation">(We congratulate his birthday.)</span></div>
+                    <div style="margin-top:8px;"><strong>• zhù (to wish someone something):</strong> Verb + Person + Wish</div>
+                    <div style="color:var(--primary-color); margin-top:2px;">e.g., <strong>Zhù nǐ</strong> shēngri kuàilè! <span class="translation">(Wish you a happy birthday!)</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEXT 2 LINES 1-9 (Separated) -->
+        <section id="nav-9" class="tab-content">
+            <div class="content-header">
+                <h2>Text 2: Lines 1–9 (Pg 134–135)</h2>
+            </div>
+            
+            <div class="flat-illustration-grid">
+                <div class="illustration-card" style="display:flex; justify-content:center; align-items:center; gap:20px; background:#F8FAFC;">
+                    <div style="text-align:left; margin-left:10px;">
+                        <h3 style="color:var(--primary-color);">Celebrating the Birthday Party</h3>
+                        <p style="font-size:0.9rem; color:var(--text-sub);">New vocabularies are highlighted in <span style="color:#EA580C; font-weight:bold;">Orange</span>.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-title">Text 2: Celebrating the Birthday Party (Lines 1–9)</div>
-                <div class="dialogue-box">1. <span class="speaker">Lín Nà:</span> Sòng Huá, zhè shì shēngri dàngāo. Zhù nǐ shēngri kuàilè!<span class="translation">(Song Hua, this is the birthday cake. Happy birthday!)</span></div>
-                <div class="dialogue-box">2. <span class="speaker">Sòng Huá:</span> Xièxie. Dàngāo zhēn piàoliang. Nǐmen lái, wǒ hěn gāoxìng.<span class="translation">(Thank you. The cake is really beautiful. You all coming makes me very happy.)</span></div>
-                <div class="dialogue-box">3. <span class="speaker">Mǎ Dàwéi:</span> Jīntiān wǒmen chī Běijīng kǎoyā. Wǒ hěn xǐhuan chī kǎoyā.<span class="translation">(Today we eat Beijing roast duck. I really like eating roast duck.)</span></div>
-                <div class="dialogue-box">4. <span class="speaker">Dīng Lìbō:</span> Wǒmen hē shénme jiǔ?<span class="translation">(What wine are we drinking?)</span></div>
-                <div class="dialogue-box">5. <span class="speaker">Wáng Xiǎoyún:</span> Dāngrán hē hóng pútaojiǔ, wǒmen hái chī shòumiàn.<span class="translation">(Of course we drink red wine, we also eat longevity noodles.)</span></div>
+                <div class="dialogue-box">1. <span class="speaker">Lín Nà:</span> Sòng Huá, zhè shì shēngri dàngāo. Zhù nǐ shēngri <span class="hl">kuàilè</span>!<span class="translation">(Song Hua, this is the birthday cake. Happy birthday!)</span></div>
+                <div class="dialogue-box">2. <span class="speaker">Sòng Huá:</span> Xièxie. Dàngāo zhēn <span class="hl">piàoliang</span>. Nǐmen lái, wǒ hěn gāoxìng.<span class="translation">(Thank you. The cake is really beautiful. You all coming makes me very happy.)</span></div>
+                <div class="dialogue-box">3. <span class="speaker">Mǎ Dàwéi:</span> Jīntiān wǒmen chī Běijīng <span class="hl">kǎoyā</span>. Wǒ hěn xǐhuan chī kǎoyā.<span class="translation">(Today we eat Beijing roast duck. I really like eating roast duck.)</span></div>
+                <div class="dialogue-box">4. <span class="speaker">Dīng Lìbō:</span> Wǒmen <span class="hl">hē</span> shénme jiǔ?<span class="translation">(What wine are we drinking?)</span></div>
+                <div class="dialogue-box">5. <span class="speaker">Wáng Xiǎoyún:</span> Dāngrán hē hóng pútaojiǔ, wǒmen hái chī <span class="hl">shòumiàn</span>.<span class="translation">(Of course we drink red wine, we also eat longevity noodles.)</span></div>
                 <div class="dialogue-box">6. <span class="speaker">Lín Nà:</span> Chī shòumiàn? Zhēn yǒu yìsi.<span class="translation">(Eat longevity noodles? Really interesting.)</span></div>
                 <div class="dialogue-box">7. <span class="speaker">Sòng Huá:</span> Lín Nà, nǐ de shēngri shì nǎ tiān?<span class="translation">(Lin Na, which day is your birthday?)</span></div>
                 <div class="dialogue-box">8. <span class="speaker">Lín Nà:</span> Shíyīyuè shí'èr hào.<span class="translation">(November 12th.)</span></div>
-                <div class="dialogue-box">9. <span class="speaker">Sòng Huá:</span> Hǎo, shíyīyuè shí'èr hào wǒmen zài lái chī shòumiàn.<span class="translation">(Okay, on Nov 12th we will come again to eat longevity noodles.)</span></div>
+                <div class="dialogue-box">9. <span class="speaker">Sòng Huá:</span> Hǎo, shíyīyuè shí'èr hào wǒmen <span class="hl">zài</span> lái chī shòumiàn.<span class="translation">(Okay, on Nov 12th we will come again to eat longevity noodles.)</span></div>
             </div>
         </section>
 
         <!-- WRAP-UP & HOMEWORK -->
-        <section id="nav-9" class="tab-content">
+        <section id="nav-10" class="tab-content">
             <div class="content-header">
                 <h2>Wrap-up & Homework</h2>
             </div>
