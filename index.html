@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 9 Live Teaching Slides: Tā jīnnián èrshí suì</title>
     <style>
+        /* IMPORT STANDARD SCHOOLBOOK PINYIN FONT (Andika) */
+        @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
         :root {
             --bg-color: #F8FAFC;         
             --primary-color: #1E3A8A;    
@@ -17,12 +20,13 @@
             --answer-blue: #2563EB;      
             --correct-green: #15803D;    
             --error-red: #B91C1C;        
+            
+            /* STANDARD PINYIN FONT STACK */
+            --pinyin-font: 'Andika', 'Century Gothic', 'Comic Sans MS', sans-serif;
         }
 
-        /* GLOBAL FONT SIZE BOOST FOR CLASSROOM PROJECTORS */
-        html {
-            font-size: 19px; 
-        }
+        /* GLOBAL FONT SIZE FOR CLASSROOM PROJECTORS */
+        html { font-size: 18px; }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -36,7 +40,7 @@
             line-height: 1.6;
         }
 
-        /* TOP NAVIGATION BAR FOR MAXIMUM WIDTH */
+        /* TOP NAVIGATION BAR - FITS ALL TABS WITHOUT SCROLLING */
         .top-navbar {
             position: sticky;
             top: 0;
@@ -48,7 +52,7 @@
         }
         
         .nav-header {
-            padding: 1.2rem 2rem;
+            padding: 0.8rem 1.8rem;
             color: white;
             display: flex;
             align-items: center;
@@ -56,73 +60,78 @@
             border-bottom: 1px solid rgba(255,255,255,0.12);
         }
         
-        .nav-header h1 { font-size: 1.5rem; margin: 0; }
-        .nav-header p { font-size: 1.05rem; color: #93C5FD; margin: 0; }
+        .nav-header h1 { font-size: 1.3rem; margin: 0; }
+        .nav-header p { font-size: 0.95rem; color: #93C5FD; margin: 0; }
         
         .nav-tabs {
             display: flex;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 0 1rem;
-            scrollbar-width: none; /* Firefox */
+            flex-wrap: wrap; /* Fit all menu items in view without horizontal scrolling */
+            justify-content: center;
+            gap: 5px;
+            padding: 0.5rem 0.8rem;
         }
-        .nav-tabs::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
         
         .nav-tabs button {
-            background: none;
-            border: none;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
             color: #E2E8F0;
-            padding: 1.2rem 1.5rem;
-            font-size: 1.05rem;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.82rem; /* Compact font size to fit all buttons */
             font-weight: 500;
             cursor: pointer;
-            border-bottom: 4px solid transparent;
+            border-radius: 6px;
             transition: all 0.2s ease;
-            display: inline-block;
+            white-space: nowrap;
         }
         
         .nav-tabs button:hover {
-            background-color: rgba(255,255,255,0.08);
+            background-color: rgba(255,255,255,0.25);
             color: white;
         }
         
         .nav-tabs button.active {
-            background-color: rgba(255,255,255,0.15);
+            background-color: var(--accent-color);
             color: white;
-            border-bottom-color: var(--accent-color);
+            border-color: var(--accent-color);
             font-weight: bold;
         }
 
-        /* MAIN SLIDE STAGE - MAXIMIZED */
+        /* MAIN SLIDE STAGE */
         .main-content { 
             margin: 0 auto; 
             flex-grow: 1; 
-            padding: 2.5rem 3rem; 
+            padding: 2rem 2.5rem; 
             width: 100%;
-            max-width: 1300px; /* Wider content area */
+            max-width: 1300px; 
         }
         .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
         
-        .content-header { margin-bottom: 2rem; padding-bottom: 0.8rem; border-bottom: 3px solid var(--border-color); }
-        .content-header h2 { color: var(--primary-color); font-size: 2.2rem; }
+        .content-header { margin-bottom: 1.8rem; padding-bottom: 0.6rem; border-bottom: 3px solid var(--border-color); }
+        .content-header h2 { color: var(--primary-color); font-size: 2.1rem; }
 
         /* CARDS & LARGE TEXT */
-        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04); margin-bottom: 2rem; padding: 2.2rem; }
-        .card-title { font-size: 1.45rem; font-weight: bold; color: var(--primary-color); margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 2px dashed var(--border-color); display: flex; align-items: center; gap: 10px; }
-        .translation { display: inline; font-size: 1.05rem; color: var(--text-sub); font-weight: normal; margin-left: 8px; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04); margin-bottom: 1.8rem; padding: 2rem; }
+        .card-title { font-size: 1.4rem; font-weight: bold; color: var(--primary-color); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px dashed var(--border-color); display: flex; align-items: center; gap: 10px; }
+        .translation { display: inline; font-size: 1.05rem; color: var(--text-sub); font-weight: normal; margin-left: 8px; font-family: 'Helvetica Neue', Arial, sans-serif; }
 
-        /* TABLES & HIGHLIGHTS */
+        /* TABLES & HIGHLIGHTS WITH STANDARD PINYIN FONT */
         .vocab-table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 1.1rem; }
-        .vocab-table th, .vocab-table td { text-align: left; padding: 1rem 0.8rem; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+        .vocab-table th, .vocab-table td { text-align: left; padding: 0.9rem 0.8rem; border-bottom: 1px solid var(--border-color); vertical-align: top; }
         .vocab-table th { background-color: #F8FAFC; color: var(--primary-color); font-size: 0.95rem; text-transform: uppercase; }
         .vocab-num { font-weight: bold; color: var(--accent-color); width: 8%; }
-        .vocab-pinyin { font-weight: bold; color: var(--primary-color); width: 22%; font-size: 1.15rem; }
-        .vocab-collo { color: var(--text-sub); margin-bottom: 4px; font-size: 1.05rem; }
+        
+        /* APPLY STANDARD PINYIN FONT */
+        .vocab-pinyin, .vocab-collo, .vocab-sent, .dlg-py, .qa-q, .qa-a, .correct-example, .error-example, .zodiac-name, .dlg-turn, .dlg-turn-ans {
+            font-family: var(--pinyin-font) !important;
+        }
+
+        .vocab-pinyin { font-weight: bold; color: var(--primary-color); width: 22%; font-size: 1.2rem; }
+        .vocab-collo { color: var(--text-sub); margin-bottom: 4px; font-size: 1.1rem; }
         .collo-target { font-weight: bold; color: #EA580C; }
-        .vocab-sent { color: var(--primary-color); font-weight: 500; font-size: 1.1rem; }
-        .vocab-note { color: var(--accent-color); font-size: 1rem; font-weight: 500; margin-top: 6px; }
+        .vocab-sent { color: var(--primary-color); font-weight: 500; font-size: 1.15rem; }
+        .vocab-note { color: var(--accent-color); font-size: 1rem; font-weight: 500; margin-top: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; }
 
         /* NEW VOCAB HIGHLIGHT IN TEXTS */
         .hl { font-weight: bold; color: #EA580C; background-color: #FFF7ED; padding: 2px 5px; border-radius: 4px; border-bottom: 2px solid #FFEDD5; }
@@ -132,10 +141,10 @@
 
         /* RULES & DIALOGUES */
         .rule-box { background-color: #FAFAFA; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 1.4rem; margin-top: 1rem; font-size: 1.1rem; }
-        .correct-example { color: var(--correct-green); font-weight: bold; font-size: 1.15rem; }
-        .error-example { color: var(--error-red); font-weight: bold; text-decoration: line-through; font-size: 1.15rem; }
+        .correct-example { color: var(--correct-green); font-weight: bold; font-size: 1.2rem; }
+        .error-example { color: var(--error-red); font-weight: bold; text-decoration: line-through; font-size: 1.2rem; }
         
-        /* INTERACTIVE CLICK-TO-REVEAL DIALOGUES */
+        /* INTERACTIVE CLICK-TO-REVEAL DIALOGUES WITH PINYIN FONT */
         .click-hint { background-color: #FEF3C7; color: #92400E; padding: 0.8rem 1.2rem; border-radius: 8px; margin-bottom: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 1.1rem;}
         
         .interactive-dlg {
@@ -164,23 +173,16 @@
         }
         
         .dlg-py {
-            display: none; /* Hidden by default */
-            font-size: 1.35rem;
+            display: none; 
+            font-size: 1.4rem; /* Prominent projector Pinyin size */
             margin-top: 1rem;
             padding-top: 1rem;
             border-top: 1px dashed #CBD5E1;
             line-height: 1.7;
         }
         
-        /* State when clicked */
-        .interactive-dlg.revealed .dlg-py {
-            display: block;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        .interactive-dlg.revealed .dlg-eng {
-            color: #94A3B8; /* Dim the English when revealed */
-            font-size: 1.05rem;
-        }
+        .interactive-dlg.revealed .dlg-py { display: block; animation: fadeIn 0.3s ease-in-out; }
+        .interactive-dlg.revealed .dlg-eng { color: #94A3B8; font-size: 1.05rem; }
         
         .speaker { font-weight: bold; color: var(--primary-color); }
         
@@ -191,8 +193,8 @@
         .qa-card { background-color: #F0F9FF; border: 1.5px solid #BAE6FD; border-radius: 10px; padding: 1.4rem; margin-top: 1.2rem; }
         .qa-pair { margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px dashed #CBD5E1; }
         .qa-pair:last-child { border-bottom: none; margin-bottom: 0; }
-        .qa-q { font-weight: bold; color: #0369A1; font-size: 1.15rem; }
-        .qa-a { color: var(--text-main); margin-top: 4px; font-size: 1.15rem; }
+        .qa-q { font-weight: bold; color: #0369A1; font-size: 1.2rem; }
+        .qa-a { color: var(--text-main); margin-top: 4px; font-size: 1.2rem; }
 
         .line-guide-box { background-color: #FEF3C7; border-left: 8px solid var(--accent-color); padding: 1.4rem 1.8rem; border-radius: 10px; margin-bottom: 1.8rem; }
         .line-guide-title { font-weight: bold; color: #92400E; font-size: 1.25rem; margin-bottom: 8px; }
@@ -202,14 +204,14 @@
         .zodiac-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 1.2rem; }
         .zodiac-item { background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 10px; text-align: center; padding: 1rem 0.6rem; }
         .zodiac-icon { font-size: 2.2rem; margin-bottom: 4px; }
-        .zodiac-name { font-weight: bold; color: var(--primary-color); font-size: 1.1rem; }
+        .zodiac-name { font-weight: bold; color: var(--primary-color); font-size: 1.15rem; }
         .zodiac-years { font-size: 0.9rem; color: var(--text-sub); margin-top: 4px; }
         
         .flat-illustration-grid { display: flex; gap: 20px; margin-bottom: 1.5rem; }
         .illustration-card { flex: 1; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.2rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
         .illustration-card svg { width: 60px; height: 60px; margin-bottom: 10px; }
 
-        .break-card { background-color: var(--primary-color); color: white; text-align: center; padding: 5rem 2rem; border-radius: 16px; border-top: 8px solid var(--accent-color); margin-top:2rem;}
+        .break-card { background-color: var(--primary-color); color: white; text-align: center; padding: 4rem 2rem; border-radius: 16px; border-top: 8px solid var(--accent-color); margin-top:2rem;}
         .break-card h2 { font-size: 3rem; margin-bottom: 1.2rem; }
         .break-card p { font-size: 1.4rem; color: #CBD5E1; }
 
@@ -392,7 +394,7 @@
                 
                 <div class="rule-box" style="margin-bottom: 1.2rem;">
                     <strong>Specific Time Order Formula:</strong>
-                    <div style="font-size: 1.15rem; color: var(--primary-color); font-weight: bold; margin-top: 6px;">
+                    <div style="font-size: 1.15rem; color: var(--primary-color); font-weight: bold; margin-top: 6px;" class="vocab-pinyin">
                         [Day] + [Time Period] + [Hour] + [Minute]
                     </div>
                     <div style="font-size:1rem; color: var(--text-sub); margin-top: 2px;">
@@ -413,27 +415,27 @@
                     <tbody>
                         <tr>
                             <td><strong>Month (yuè)</strong></td>
-                            <td>shàng ge yuè <span class="translation">(last month)</span></td>
-                            <td>zhè ge yuè <span class="translation">(this month)</span></td>
-                            <td>xià ge yuè <span class="translation">(next month)</span></td>
+                            <td class="vocab-pinyin">shàng ge yuè <span class="translation">(last month)</span></td>
+                            <td class="vocab-pinyin">zhè ge yuè <span class="translation">(this month)</span></td>
+                            <td class="vocab-pinyin">xià ge yuè <span class="translation">(next month)</span></td>
                         </tr>
                         <tr>
                             <td><strong>Week (xīngqī)</strong></td>
-                            <td>shàng xīngqī <span class="translation">(last week)</span></td>
-                            <td>zhè xīngqī <span class="translation">(this week)</span></td>
-                            <td>xià xīngqī <span class="translation">(next week)</span></td>
+                            <td class="vocab-pinyin">shàng xīngqī <span class="translation">(last week)</span></td>
+                            <td class="vocab-pinyin">zhè xīngqī <span class="translation">(this week)</span></td>
+                            <td class="vocab-pinyin">xià xīngqī <span class="translation">(next week)</span></td>
                         </tr>
                         <tr style="background-color: #FEF2F2;">
                             <td><strong>Year (nián) ⚠️ No shàng/xià!</strong></td>
-                            <td>qùnián <span class="translation">(last year)</span></td>
-                            <td>jīnnián <span class="translation">(this year)</span></td>
-                            <td>míngnián <span class="translation">(next year)</span></td>
+                            <td class="vocab-pinyin">qùnián <span class="translation">(last year)</span></td>
+                            <td class="vocab-pinyin">jīnnián <span class="translation">(this year)</span></td>
+                            <td class="vocab-pinyin">míngnián <span class="translation">(next year)</span></td>
                         </tr>
                         <tr style="background-color: #FEF2F2;">
                             <td><strong>Day (tiān) ⚠️ No shàng/xià!</strong></td>
-                            <td>zuótiān <span class="translation">(yesterday)</span></td>
-                            <td>jīntiān / xiànzài <span class="translation">(today / now)</span></td>
-                            <td>míngtiān <span class="translation">(tomorrow)</span></td>
+                            <td class="vocab-pinyin">zuótiān <span class="translation">(yesterday)</span></td>
+                            <td class="vocab-pinyin">jīntiān / xiànzài <span class="translation">(today / now)</span></td>
+                            <td class="vocab-pinyin">míngtiān <span class="translation">(tomorrow)</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -588,11 +590,11 @@
                 <div class="card-title">🌍 "Nǐ shì nǎ guó rén?" vs "Nǐ shì nǎr rén?" Comparison</div>
                 <div class="rule-box">
                     <div><strong>1. Nǐ shì nǎ guó rén? (Which nationality are you?)</strong> -> Answer: [Country] + rén</div>
-                    <div style="color: var(--primary-color); margin-top: 4px;">e.g., Nǐ shì nǎ guó rén? -> Wǒ shì Měiguó rén / Jiānádà rén. <span class="translation">(American / Canadian)</span></div>
+                    <div style="color: var(--primary-color); margin-top: 4px;" class="vocab-pinyin">e.g., Nǐ shì nǎ guó rén? -> Wǒ shì Měiguó rén / Jiānádà rén. <span class="translation">(American / Canadian)</span></div>
                 </div>
                 <div class="rule-box" style="margin-top: 1rem;">
                     <div><strong>2. Nǐ shì nǎr rén? (Where are you from / Hometown?)</strong> -> Answer: [City/Region] + rén</div>
-                    <div style="color: var(--primary-color); margin-top: 4px;">e.g., Tā shì nǎr rén? -> Tā shì Běijīng rén / Shābā rén. <span class="translation">(From Beijing / From Sabah)</span></div>
+                    <div style="color: var(--primary-color); margin-top: 4px;" class="vocab-pinyin">e.g., Tā shì nǎr rén? -> Tā shì Běijīng rén / Shābā rén. <span class="translation">(From Beijing / From Sabah)</span></div>
                 </div>
             </div>
 
@@ -635,7 +637,7 @@
                             <rect x="29" y="12" width="6" height="16" rx="2" fill="#3B82F6"/>
                             <circle cx="32" cy="8" r="4" fill="#F59E0B"/>
                         </svg>
-                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;">#21. dàngāo</div>
+                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;" class="vocab-pinyin">#21. dàngāo</div>
                         <div style="font-size:0.95rem; color:var(--text-sub);">yí ge dà dàngāo (a big cake)</div>
                     </div>
 
@@ -645,7 +647,7 @@
                             <path d="M26 20L18 32V56H46V32L38 20H26Z" fill="#7F1D1D"/>
                             <rect x="20" y="36" width="24" height="14" rx="2" fill="#FEF3C7"/>
                         </svg>
-                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;">#24. hóng pútaojiǔ</div>
+                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;" class="vocab-pinyin">#24. hóng pútaojiǔ</div>
                         <div style="font-size:0.95rem; color:var(--text-sub);">liǎng píng hóng pútaojiǔ</div>
                     </div>
 
@@ -654,7 +656,7 @@
                             <rect x="28" y="10" width="8" height="8" fill="#1D4ED8"/>
                             <path d="M26 18L20 28V54H44V28L38 18H26Z" fill="#60A5FA"/>
                         </svg>
-                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;">#23. píng</div>
+                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;" class="vocab-pinyin">#23. píng</div>
                         <div style="font-size:0.95rem; color:var(--text-sub);">yì píng shuǐ / jiǔ</div>
                     </div>
                 </div>
@@ -684,7 +686,7 @@
                 <div class="rule-box">
                     <strong>1. "guò" (to celebrate):</strong> guò shēngri = celebrate a birthday.
                     <br><br><strong>2. "... de shíhou" (when... / during...):</strong>
-                    <div style="color:var(--primary-color); margin-top:6px;">
+                    <div style="color:var(--primary-color); margin-top:6px;" class="vocab-pinyin">
                         • Zhōngguó rén <strong>guò shēngri de shíhou</strong> chī dàngāo ma?
                         <br><span class="translation" style="margin-left: 10px;">(Do Chinese people eat cake WHEN celebrating birthdays?)</span>
                         <br><br>• Mèimei <strong>chànggē de shíhou</strong> hěn kě'ài.
@@ -805,7 +807,7 @@
                             <path d="M42 28C42 22 36 16 30 16C26 16 22 18 22 22C22 26 26 28 32 30" stroke="#B45309" stroke-width="4" stroke-linecap="round"/>
                             <path d="M12 40C12 40 20 48 32 48C44 48 52 40 52 40" stroke="#78350F" stroke-width="3"/>
                         </svg>
-                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;">#3. kǎoyā</div>
+                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;" class="vocab-pinyin">#3. kǎoyā</div>
                         <div style="font-size:0.95rem; color:var(--text-sub);">Běijīng kǎoyā (Roast duck)</div>
                     </div>
 
@@ -815,7 +817,7 @@
                             <path d="M20 28C20 20 24 16 32 16C40 16 44 20 44 28" stroke="#F59E0B" stroke-width="3"/>
                             <path d="M26 28C26 22 28 18 32 18C36 18 38 22 38 28" stroke="#FBBF24" stroke-width="3"/>
                         </svg>
-                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;">#6. shòumiàn</div>
+                        <div style="font-weight:bold; color:var(--primary-color); font-size:1.1rem;" class="vocab-pinyin">#6. shòumiàn</div>
                         <div style="font-size:0.95rem; color:var(--text-sub);">chī shòumiàn (Longevity noodles)</div>
                     </div>
                 </div>
@@ -840,10 +842,10 @@
             <div class="card">
                 <div class="card-title">💡 Grammar Supplement 2: "zhùhè" vs "zhù"</div>
                 <div class="rule-box">
-                    <div><strong>• zhùhè (to congratulate on an occasion/event):</strong> Verb + Event</div>
-                    <div style="color:var(--primary-color); margin-top:2px;">e.g., Wǒmen <strong>zhùhè tā de shēngri</strong>. <span class="translation">(We congratulate his birthday.)</span></div>
+                    <div><strong>• zhùhè (to congratulate on an event):</strong> Verb + Event</div>
+                    <div style="color:var(--primary-color); margin-top:2px;" class="vocab-pinyin">e.g., Wǒmen <strong>zhùhè tā de shēngri</strong>. <span class="translation">(We congratulate his birthday.)</span></div>
                     <div style="margin-top:10px;"><strong>• zhù (to wish someone something):</strong> Verb + Person + Wish</div>
-                    <div style="color:var(--primary-color); margin-top:2px;">e.g., <strong>Zhù nǐ</strong> shēngri kuàilè! <span class="translation">(Wish you a happy birthday!)</span></div>
+                    <div style="color:var(--primary-color); margin-top:2px;" class="vocab-pinyin">e.g., <strong>Zhù nǐ</strong> shēngri kuàilè! <span class="translation">(Wish you a happy birthday!)</span></div>
                 </div>
             </div>
         </section>
@@ -951,7 +953,6 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
 
-            // Scroll to the top of the main content area smoothly
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
