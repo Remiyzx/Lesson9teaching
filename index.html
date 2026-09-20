@@ -21,7 +21,7 @@
 
         /* GLOBAL FONT SIZE BOOST FOR CLASSROOM PROJECTORS */
         html {
-            font-size: 19px; /* Base font size raised from 16px to 19px */
+            font-size: 19px; 
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,36 +31,76 @@
             background-color: var(--bg-color); 
             color: var(--text-main); 
             display: flex; 
+            flex-direction: column;
             min-height: 100vh;
             line-height: 1.6;
         }
 
-        /* SIDEBAR TEACHING MENU - PROJECTOR PROPORTIONS */
-        .sidebar { 
-            width: 320px; 
-            background-color: var(--primary-color); 
-            color: white; 
-            position: fixed; 
-            top: 0; bottom: 0; left: 0; 
-            display: flex; flex-direction: column; 
-            box-shadow: 4px 0 10px rgba(0,0,0,0.08); 
-            z-index: 100; 
+        /* TOP NAVIGATION BAR FOR MAXIMUM WIDTH */
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
         }
-        .sidebar-header { padding: 2.2rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
-        .sidebar-header h1 { font-size: 1.5rem; margin-bottom: 6px; color: #FFFFFF; }
-        .sidebar-header p { font-size: 0.95rem; color: #93C5FD; }
-        .sidebar-menu { list-style: none; padding: 1rem 0; overflow-y: auto; flex-grow: 1; }
-        .sidebar-menu button { 
-            width: 100%; text-align: left; background: none; border: none; 
-            color: #E2E8F0; padding: 1.05rem 1.5rem; font-size: 1.02rem; font-weight: 500; 
-            cursor: pointer; display: flex; align-items: center; gap: 10px; 
-            transition: all 0.2s ease; border-left: 5px solid transparent; 
+        
+        .nav-header {
+            padding: 1.2rem 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
         }
-        .sidebar-menu button:hover { background-color: rgba(255,255,255,0.08); color: white; }
-        .sidebar-menu button.active { background-color: rgba(255,255,255,0.18); color: white; border-left-color: var(--accent-color); font-weight: bold; }
+        
+        .nav-header h1 { font-size: 1.5rem; margin: 0; }
+        .nav-header p { font-size: 1.05rem; color: #93C5FD; margin: 0; }
+        
+        .nav-tabs {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 0 1rem;
+            scrollbar-width: none; /* Firefox */
+        }
+        .nav-tabs::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+        
+        .nav-tabs button {
+            background: none;
+            border: none;
+            color: #E2E8F0;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 4px solid transparent;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        
+        .nav-tabs button:hover {
+            background-color: rgba(255,255,255,0.08);
+            color: white;
+        }
+        
+        .nav-tabs button.active {
+            background-color: rgba(255,255,255,0.15);
+            color: white;
+            border-bottom-color: var(--accent-color);
+            font-weight: bold;
+        }
 
-        /* MAIN SLIDE STAGE */
-        .main-content { margin-left: 320px; flex-grow: 1; padding: 2.5rem 3.5rem; max-width: 1150px; }
+        /* MAIN SLIDE STAGE - MAXIMIZED */
+        .main-content { 
+            margin: 0 auto; 
+            flex-grow: 1; 
+            padding: 2.5rem 3rem; 
+            width: 100%;
+            max-width: 1300px; /* Wider content area */
+        }
         .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -95,7 +135,53 @@
         .correct-example { color: var(--correct-green); font-weight: bold; font-size: 1.15rem; }
         .error-example { color: var(--error-red); font-weight: bold; text-decoration: line-through; font-size: 1.15rem; }
         
-        .dialogue-box { background-color: #FFFFFF; border-left: 6px solid var(--accent-color); padding: 1rem 1.4rem; margin-bottom: 1rem; border-radius: 0 8px 8px 0; font-size: 1.2rem; line-height: 1.7; }
+        /* INTERACTIVE CLICK-TO-REVEAL DIALOGUES */
+        .click-hint { background-color: #FEF3C7; color: #92400E; padding: 0.8rem 1.2rem; border-radius: 8px; margin-bottom: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 1.1rem;}
+        
+        .interactive-dlg {
+            background-color: #FFFFFF;
+            border-left: 6px solid var(--accent-color);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .interactive-dlg:hover {
+            background-color: #F8FAFC;
+            transform: translateX(4px);
+        }
+        
+        .dlg-eng {
+            font-size: 1.2rem;
+            color: #475569;
+            font-weight: 500;
+        }
+        
+        .dlg-py {
+            display: none; /* Hidden by default */
+            font-size: 1.35rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #CBD5E1;
+            line-height: 1.7;
+        }
+        
+        /* State when clicked */
+        .interactive-dlg.revealed .dlg-py {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .interactive-dlg.revealed .dlg-eng {
+            color: #94A3B8; /* Dim the English when revealed */
+            font-size: 1.05rem;
+        }
+        
         .speaker { font-weight: bold; color: var(--primary-color); }
         
         .dlg-prompt-title { font-size: 1.15rem; font-weight: bold; color: var(--accent-color); margin: 1.4rem 0 0.5rem 0; }
@@ -112,7 +198,7 @@
         .line-guide-title { font-weight: bold; color: #92400E; font-size: 1.25rem; margin-bottom: 8px; }
         .line-guide-text { color: #78350F; font-size: 1.1rem; line-height: 1.6; }
 
-        /* ZODIAC & ILLUSTRATIONS - PROJECTOR ENHANCED */
+        /* ZODIAC & ILLUSTRATIONS */
         .zodiac-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 1.2rem; }
         .zodiac-item { background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 10px; text-align: center; padding: 1rem 0.6rem; }
         .zodiac-icon { font-size: 2.2rem; margin-bottom: 4px; }
@@ -123,17 +209,13 @@
         .illustration-card { flex: 1; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.2rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
         .illustration-card svg { width: 60px; height: 60px; margin-bottom: 10px; }
 
-        .break-card { background-color: var(--primary-color); color: white; text-align: center; padding: 5rem 2rem; border-radius: 16px; border-top: 8px solid var(--accent-color); }
+        .break-card { background-color: var(--primary-color); color: white; text-align: center; padding: 5rem 2rem; border-radius: 16px; border-top: 8px solid var(--accent-color); margin-top:2rem;}
         .break-card h2 { font-size: 3rem; margin-bottom: 1.2rem; }
         .break-card p { font-size: 1.4rem; color: #CBD5E1; }
 
         @media (max-width: 850px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; position: relative; height: auto; }
-            .main-content { margin-left: 0; padding: 1.5rem; width: 100%; }
-            .sidebar-menu { display: flex; overflow-x: auto; padding: 0.5rem; }
-            .sidebar-menu button { white-space: nowrap; padding: 0.8rem 1rem; border-left: none; border-bottom: 3px solid transparent; }
-            .sidebar-menu button.active { border-left-color: transparent; border-bottom-color: var(--accent-color); }
+            .nav-header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 1rem; }
+            .main-content { padding: 1.5rem; }
             .zodiac-grid { grid-template-columns: repeat(2, 1fr); }
             .flat-illustration-grid { flex-direction: column; }
         }
@@ -141,25 +223,26 @@
 </head>
 <body>
 
-    <nav class="sidebar">
-        <div class="sidebar-header">
+    <!-- TOP NAVIGATION BAR -->
+    <header class="top-navbar">
+        <div class="nav-header">
             <h1>Lesson 9 Teaching Slides</h1>
             <p>New Practical Chinese Reader 1</p>
         </div>
-        <ul class="sidebar-menu">
-            <li><button class="tab-btn active" onclick="openTab(event, 'nav-0')">📌 Agenda & Overview</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-1')">🗓️ Dates & Calendar</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-2')">⏰ Time & Class Schedule</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-3')">📅 Text 1 (Lines 1-8)</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-4')">🎂 Age, Birthplace & 12 Zodiacs</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-5')">🎉 Party Items & Grammar 1</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-6')">💬 Text 1 (Lines 9-17)</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'tab-break')">☕ Mid-Class Break</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-8')">🍷 Celebrations Vocab & Grammar 2</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-9')">💬 Text 2 (Lines 1-9)</button></li>
-            <li><button class="tab-btn" onclick="openTab(event, 'nav-10')">📝 Wrap-up & Homework</button></li>
-        </ul>
-    </nav>
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'nav-0')">📌 Agenda</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-1')">🗓️ Dates & Calendar</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-2')">⏰ Time & Classes</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-3')">📅 Text 1 (1-8)</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-4')">🎂 Age & Zodiac</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-5')">🎉 Party & Grammar 1</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-6')">💬 Text 1 (9-17)</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-break')">☕ Break</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-8')">🍷 Food & Grammar 2</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-9')">💬 Text 2 (1-9)</button>
+            <button class="tab-btn" onclick="openTab(event, 'nav-10')">📝 Homework</button>
+        </div>
+    </header>
 
     <main class="main-content">
 
@@ -371,7 +454,7 @@
             </div>
         </section>
 
-        <!-- TEXT 1 LINES 1-8 -->
+        <!-- TEXT 1 LINES 1-8 (INTERACTIVE) -->
         <section id="nav-3" class="tab-content">
             <div class="content-header">
                 <h2>Text 1: Lines 1–8 (Pg 130)</h2>
@@ -397,16 +480,52 @@
                 </div>
             </div>
 
+            <div class="click-hint">
+                🖱️ Interactive Mode: Click on the English translation to reveal the Pinyin dialogue!
+            </div>
+
             <div class="card">
                 <div class="card-title">Text 1: Making an Appointment (Lines 1–8)</div>
-                <div class="dialogue-box">1. <span class="speaker">Wáng Xiǎoyún:</span> Lín Nà, nǐ <span class="hl">zěnmeyàng</span>?<span class="translation">(Lin Na, how are you?)</span></div>
-                <div class="dialogue-box">2. <span class="speaker">Lín Nà:</span> Wǒ <span class="hl">jīntiān</span> hěn máng.<span class="translation">(I am very busy today.)</span></div>
-                <div class="dialogue-box">3. <span class="speaker">Wáng Xiǎoyún:</span> Míngtiān <span class="hl">shàngwǔ</span> nǐ yǒu méiyǒu <span class="hl">kè</span>?<span class="translation">(Do you have class tomorrow morning?)</span></div>
-                <div class="dialogue-box">4. <span class="speaker">Lín Nà:</span> Míngtiān shì <span class="hl">xīngqī</span> jǐ?<span class="translation">(What day of the week is tomorrow?)</span></div>
-                <div class="dialogue-box">5. <span class="speaker">Wáng Xiǎoyún:</span> Míngtiān shì xīngqīsì.<span class="translation">(Tomorrow is Thursday.)</span></div>
-                <div class="dialogue-box">6. <span class="speaker">Lín Nà:</span> Wǒ shàngwǔ, <span class="hl">xiàwǔ</span> dōu yǒu kè.<span class="translation">(I have classes both morning and afternoon.)</span></div>
-                <div class="dialogue-box">7. <span class="speaker">Wáng Xiǎoyún:</span> Nǐ <span class="hl">xīngqīrì</span> yǒu shíjiān ma?<span class="translation">(Do you have time on Sunday?)</span></div>
-                <div class="dialogue-box">8. <span class="speaker">Lín Nà:</span> Xīngqīrì shì jǐ <span class="hl">hào</span>?<span class="translation">(What date is Sunday?)</span></div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">1. (Lin Na, how are you?)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Lín Nà, nǐ <span class="hl">zěnmeyàng</span>?</div>
+                </div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">2. (I am very busy today.)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Wǒ <span class="hl">jīntiān</span> hěn máng.</div>
+                </div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">3. (Do you have class tomorrow morning?)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Míngtiān <span class="hl">shàngwǔ</span> nǐ yǒu méiyǒu <span class="hl">kè</span>?</div>
+                </div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">4. (What day of the week is tomorrow?)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Míngtiān shì <span class="hl">xīngqī</span> jǐ?</div>
+                </div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">5. (Tomorrow is Thursday.)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Míngtiān shì xīngqīsì.</div>
+                </div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">6. (I have classes both morning and afternoon.)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Wǒ shàngwǔ, <span class="hl">xiàwǔ</span> dōu yǒu kè.</div>
+                </div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">7. (Do you have time on Sunday?)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Nǐ <span class="hl">xīngqīrì</span> yǒu shíjiān ma?</div>
+                </div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">8. (What date is Sunday?)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Xīngqīrì shì jǐ <span class="hl">hào</span>?</div>
+                </div>
             </div>
         </section>
 
@@ -580,7 +699,7 @@
             </div>
         </section>
 
-        <!-- TEXT 1 LINES 9-17 -->
+        <!-- TEXT 1 LINES 9-17 (INTERACTIVE) -->
         <section id="nav-6" class="tab-content">
             <div class="content-header">
                 <h2>Text 1: Lines 9–17 (Pg 130–131)</h2>
@@ -606,17 +725,57 @@
                 </div>
             </div>
 
+            <div class="click-hint">
+                🖱️ Interactive Mode: Click on the English translation to reveal the Pinyin dialogue!
+            </div>
+
             <div class="card">
                 <div class="card-title">Text 1: Age & Party Details (Lines 9–17)</div>
-                <div class="dialogue-box">9. <span class="speaker">Wáng Xiǎoyún:</span> Xīngqīrì shì shíyuè èrshíqī hào, shì Sòng Huá de <span class="hl">shēngri</span>.<span class="translation">(Sunday is October 27th, it is Song Hua's birthday.)</span></div>
-                <div class="dialogue-box">10. <span class="speaker">Lín Nà:</span> Shì ma? Tā <span class="hl">jīnnián duō dà</span>?<span class="translation">(Really? How old is he this year?)</span></div>
-                <div class="dialogue-box">11. <span class="speaker">Wáng Xiǎoyún:</span> Sòng Huá 1982 <span class="hl">nián</span> shíyuè èrshíqī rì <span class="hl">chūshēng</span>, <span class="hl">shǔ</span> gǒu. Tā jīnnián èrshí <span class="hl">suì</span>.<span class="translation">(Song Hua was born on Oct 27, 1982, in the year of the dog. He is 20.)</span></div>
-                <div class="dialogue-box">12. <span class="speaker">Lín Nà:</span> Tā shì nǎr rén?<span class="translation">(Where is he from?)</span></div>
-                <div class="dialogue-box">13. <span class="speaker">Wáng Xiǎoyún:</span> Tā shì <span class="hl">Běijīng</span> rén. Tā bàba, māma dōu zài Běijīng. Xīngqīrì xiàwǔ wǒmen yǒu yí ge <span class="hl">jùhuì</span>, <span class="hl">zhùhè</span> tā de shēngri. Lìbō, Dàwéi dōu qù, nǐ <span class="hl">cānjiā</span> bu cānjiā?<span class="translation">(He is from Beijing. His dad and mom are both in Beijing. Sunday afternoon we have a party to celebrate his birthday. Libo and Dawei are both going, are you participating?)</span></div>
-                <div class="dialogue-box">14. <span class="speaker">Lín Nà:</span> Tài hǎo <span class="hl">le</span>! Wǒ dāngrán cānjiā. Zhōngguó rén <span class="hl">guò</span> shēngri de shíhou <span class="hl">chī</span> <span class="hl">dàngāo</span> ma?<span class="translation">(Great! Of course I will participate. Do Chinese people eat cake when celebrating birthdays?)</span></div>
-                <div class="dialogue-box">15. <span class="speaker">Wáng Xiǎoyún:</span> Chī dàngāo.<span class="translation">(Yes, eat cake.)</span></div>
-                <div class="dialogue-box">16. <span class="speaker">Lín Nà:</span> Wǒ <span class="hl">mǎi</span> yí ge dà dàngāo, hǎo ma?<span class="translation">(I'll buy a big cake, okay?)</span></div>
-                <div class="dialogue-box">17. <span class="speaker">Wáng Xiǎoyún:</span> Hǎo a. Wǒ mǎi liǎng <span class="hl">píng</span> <span class="hl">hóng pútaojiǔ</span>.<span class="translation">(Okay. I'll buy two bottles of red wine.)</span></div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">9. (Sunday is October 27th, it is Song Hua's birthday.)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Xīngqīrì shì shíyuè èrshíqī hào, shì Sòng Huá de <span class="hl">shēngri</span>.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">10. (Really? How old is he this year?)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Shì ma? Tā <span class="hl">jīnnián duō dà</span>?</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">11. (Song Hua was born on Oct 27, 1982, in the year of the dog. He is 20.)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Sòng Huá 1982 <span class="hl">nián</span> shíyuè èrshíqī rì <span class="hl">chūshēng</span>, <span class="hl">shǔ</span> gǒu. Tā jīnnián èrshí <span class="hl">suì</span>.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">12. (Where is he from?)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Tā shì nǎr rén?</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">13. (He is from Beijing. His dad and mom are both in Beijing. Sunday afternoon we have a party to celebrate his birthday. Libo and Dawei are both going, are you participating?)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Tā shì <span class="hl">Běijīng</span> rén. Tā bàba, māma dōu zài Běijīng. Xīngqīrì xiàwǔ wǒmen yǒu yí ge <span class="hl">jùhuì</span>, <span class="hl">zhùhè</span> tā de shēngri. Lìbō, Dàwéi dōu qù, nǐ <span class="hl">cānjiā</span> bu cānjiā?</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">14. (Great! Of course I will participate. Do Chinese people eat cake when celebrating birthdays?)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Tài hǎo <span class="hl">le</span>! Wǒ dāngrán cānjiā. Zhōngguó rén <span class="hl">guò</span> shēngri de shíhou <span class="hl">chī</span> <span class="hl">dàngāo</span> ma?</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">15. (Yes, eat cake.)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Chī dàngāo.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">16. (I'll buy a big cake, okay?)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Wǒ <span class="hl">mǎi</span> yí ge dà dàngāo, hǎo ma?</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">17. (Okay. I'll buy two bottles of red wine.)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Hǎo a. Wǒ mǎi liǎng <span class="hl">píng</span> <span class="hl">hóng pútaojiǔ</span>.</div>
+                </div>
             </div>
         </section>
 
@@ -689,7 +848,7 @@
             </div>
         </section>
 
-        <!-- TEXT 2 LINES 1-9 (Separated) -->
+        <!-- TEXT 2 LINES 1-9 (INTERACTIVE) -->
         <section id="nav-9" class="tab-content">
             <div class="content-header">
                 <h2>Text 2: Lines 1–9 (Pg 134–135)</h2>
@@ -704,17 +863,57 @@
                 </div>
             </div>
 
+            <div class="click-hint">
+                🖱️ Interactive Mode: Click on the English translation to reveal the Pinyin dialogue!
+            </div>
+
             <div class="card">
                 <div class="card-title">Text 2: Celebrating the Birthday Party (Lines 1–9)</div>
-                <div class="dialogue-box">1. <span class="speaker">Lín Nà:</span> Sòng Huá, zhè shì shēngri dàngāo. Zhù nǐ shēngri <span class="hl">kuàilè</span>!<span class="translation">(Song Hua, this is the birthday cake. Happy birthday!)</span></div>
-                <div class="dialogue-box">2. <span class="speaker">Sòng Huá:</span> Xièxie. Dàngāo zhēn <span class="hl">piàoliang</span>. Nǐmen lái, wǒ hěn gāoxìng.<span class="translation">(Thank you. The cake is really beautiful. You all coming makes me very happy.)</span></div>
-                <div class="dialogue-box">3. <span class="speaker">Mǎ Dàwéi:</span> Jīntiān wǒmen chī Běijīng <span class="hl">kǎoyā</span>. Wǒ hěn xǐhuan chī kǎoyā.<span class="translation">(Today we eat Beijing roast duck. I really like eating roast duck.)</span></div>
-                <div class="dialogue-box">4. <span class="speaker">Dīng Lìbō:</span> Wǒmen <span class="hl">hē</span> shénme jiǔ?<span class="translation">(What wine are we drinking?)</span></div>
-                <div class="dialogue-box">5. <span class="speaker">Wáng Xiǎoyún:</span> Dāngrán hē hóng pútaojiǔ, wǒmen hái chī <span class="hl">shòumiàn</span>.<span class="translation">(Of course we drink red wine, we also eat longevity noodles.)</span></div>
-                <div class="dialogue-box">6. <span class="speaker">Lín Nà:</span> Chī shòumiàn? Zhēn yǒu yìsi.<span class="translation">(Eat longevity noodles? Really interesting.)</span></div>
-                <div class="dialogue-box">7. <span class="speaker">Sòng Huá:</span> Lín Nà, nǐ de shēngri shì nǎ tiān?<span class="translation">(Lin Na, which day is your birthday?)</span></div>
-                <div class="dialogue-box">8. <span class="speaker">Lín Nà:</span> Shíyīyuè shí'èr hào.<span class="translation">(November 12th.)</span></div>
-                <div class="dialogue-box">9. <span class="speaker">Sòng Huá:</span> Hǎo, shíyīyuè shí'èr hào wǒmen <span class="hl">zài</span> lái chī shòumiàn.<span class="translation">(Okay, on Nov 12th we will come again to eat longevity noodles.)</span></div>
+                
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">1. (Song Hua, this is the birthday cake. Happy birthday!)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Sòng Huá, zhè shì shēngri dàngāo. Zhù nǐ shēngri <span class="hl">kuàilè</span>!</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">2. (Thank you. The cake is really beautiful. You all coming makes me very happy.)</div>
+                    <div class="dlg-py"><span class="speaker">Sòng Huá:</span> Xièxie. Dàngāo zhēn <span class="hl">piàoliang</span>. Nǐmen lái, wǒ hěn gāoxìng.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">3. (Today we eat Beijing roast duck. I really like eating roast duck.)</div>
+                    <div class="dlg-py"><span class="speaker">Mǎ Dàwéi:</span> Jīntiān wǒmen chī Běijīng <span class="hl">kǎoyā</span>. Wǒ hěn xǐhuan chī kǎoyā.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">4. (What wine are we drinking?)</div>
+                    <div class="dlg-py"><span class="speaker">Dīng Lìbō:</span> Wǒmen <span class="hl">hē</span> shénme jiǔ?</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">5. (Of course we drink red wine, we also eat longevity noodles.)</div>
+                    <div class="dlg-py"><span class="speaker">Wáng Xiǎoyún:</span> Dāngrán hē hóng pútaojiǔ, wǒmen hái chī <span class="hl">shòumiàn</span>.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">6. (Eat longevity noodles? Really interesting.)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Chī shòumiàn? Zhēn yǒu yìsi.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">7. (Lin Na, which day is your birthday?)</div>
+                    <div class="dlg-py"><span class="speaker">Sòng Huá:</span> Lín Nà, nǐ de shēngri shì nǎ tiān?</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">8. (November 12th.)</div>
+                    <div class="dlg-py"><span class="speaker">Lín Nà:</span> Shíyīyuè shí'èr hào.</div>
+                </div>
+
+                <div class="interactive-dlg" onclick="this.classList.toggle('revealed')">
+                    <div class="dlg-eng">9. (Okay, on Nov 12th we will come again to eat longevity noodles.)</div>
+                    <div class="dlg-py"><span class="speaker">Sòng Huá:</span> Hǎo, shíyīyuè shí'èr hào wǒmen <span class="hl">zài</span> lái chī shòumiàn.</div>
+                </div>
             </div>
         </section>
 
@@ -727,7 +926,7 @@
                 <div class="card-title">Homework Assignments</div>
                 <div class="dlg-turn">1. Review all 26 vocabulary items and collocations from Lesson 9.</div>
                 <div class="dlg-turn">2. Practice reading Text 1 and Text 2 aloud until fluent.</div>
-                <div class="dlg-turn">3. Complete remaining reading and oral exercises in your workbook.</div>
+                <div class="dlg-turn">3. Complete remaining reading and oral exercises in your textbook.</div>
                 <p style="margin-top: 1.5rem; color: var(--primary-color); font-weight: bold; font-size: 1.2rem;">Xièxie! Zàijiàn!</p>
             </div>
         </section>
@@ -752,6 +951,7 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
 
+            // Scroll to the top of the main content area smoothly
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
