@@ -140,6 +140,19 @@
         .collo-target { font-weight: bold; color: var(--primary-color); }
         .vocab-sent { color: var(--primary-color); font-weight: 500; font-size: 1.15rem; }
 
+        /* FULL-WIDTH PINYIN BOX FOR GRAMMAR EXAMPLES (PREVENTS SQUISHING) */
+        .pinyin-box {
+            font-family: var(--pinyin-font) !important;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            background: #FFFFFF;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            line-height: 2.2;
+            width: 100%;
+        }
+
         /* NEW VOCAB HIGHLIGHT IN TEXTS */
         .hl { font-weight: bold; color: #BE185D; background-color: #FCE7F3; padding: 2px 5px; border-radius: 4px; border-bottom: 2px solid #FBCFE8; }
 
@@ -438,12 +451,12 @@
                         <div class="slot slot-time"><span class="slot-label">Weekday</span>Weekday (xīngqī)</div>
                     </div>
 
-                    <div style="background: white; padding: 12px; border-radius: 8px; margin-top: 10px;">
+                    <div class="pinyin-box">
                         <strong style="color: var(--primary-color);">Reading Rules & Examples:</strong>
-                        <br>• Year numbers are read digit by digit: <span class="vocab-pinyin">yī jiǔ bā èr nián</span> (1982).
-                        <br>• Month numbers + <span class="grammar-hl">yuè</span>: <span class="vocab-pinyin">shíyuè</span> (October).
-                        <br>• Day numbers + <span class="grammar-hl">hào</span> (spoken) / <span class="grammar-hl">rì</span> (written): <span class="vocab-pinyin">èrshíqī hào</span> / <span class="vocab-pinyin">èrshíqī rì</span>.
-                        <br>• Full Date Example: <span class="vocab-pinyin">yī jiǔ bā èr nián shíyuè èrshíqī rì, xīngqīrì</span>.
+                        <br>• Year numbers are read digit by digit: <span style="font-weight: bold;">yī jiǔ bā èr nián</span> (1982).
+                        <br>• Month numbers + <span class="grammar-hl">yuè</span>: <span style="font-weight: bold;">shíyuè</span> (October).
+                        <br>• Day numbers + <span class="grammar-hl">hào</span> (spoken) / <span class="grammar-hl">rì</span> (written): <span style="font-weight: bold;">èrshíqī hào</span> / <span style="font-weight: bold;">èrshíqī rì</span>.
+                        <br>• Full Date Example: <span style="font-weight: bold;">yī jiǔ bā èr nián shíyuè èrshíqī rì, xīngqīrì</span>.
                     </div>
                 </div>
 
@@ -452,16 +465,16 @@
                     <div style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
                         <div style="background: white; padding: 12px; border-radius: 8px; flex: 1;">
                             <strong style="color: var(--correct-green);">✔ Valid with: Week / Month / Part of Day</strong>
-                            <br>• <span class="vocab-pinyin">shàngwǔ</span> (morning) / <span class="vocab-pinyin">xiàwǔ</span> (afternoon)
-                            <br>• <span class="vocab-pinyin">shàng xīngqī</span> (last week) / <span class="vocab-pinyin">xià xīngqī</span> (next week)
-                            <br>• <span class="vocab-pinyin">shàng ge yuè</span> (last month) / <span class="vocab-pinyin">xià ge yuè</span> (next month)
+                            <br>• <span class="vocab-pinyin" style="width: auto;">shàngwǔ</span> (morning) / <span class="vocab-pinyin" style="width: auto;">xiàwǔ</span> (afternoon)
+                            <br>• <span class="vocab-pinyin" style="width: auto;">shàng xīngqī</span> (last week) / <span class="vocab-pinyin" style="width: auto;">xià xīngqī</span> (next week)
+                            <br>• <span class="vocab-pinyin" style="width: auto;">shàng ge yuè</span> (last month) / <span class="vocab-pinyin" style="width: auto;">xià ge yuè</span> (next month)
                         </div>
                         <div style="background: white; padding: 12px; border-radius: 8px; flex: 1;">
                             <strong style="color: var(--error-red);">✘ NEVER use with: Year / Day</strong>
-                            <br>• <span class="error-example">shàng nián</span> ➔ Use <span class="vocab-pinyin">qùnián</span> (last year)
-                            <br>• <span class="error-example">xià nián</span> ➔ Use <span class="vocab-pinyin">míngnián</span> (next year)
-                            <br>• <span class="error-example">shàng tiān</span> ➔ Use <span class="vocab-pinyin">zuótiān</span> (yesterday)
-                            <br>• <span class="error-example">xià tiān</span> ➔ Use <span class="vocab-pinyin">míngnián</span> (tomorrow)
+                            <br>• <span class="error-example">shàng nián</span> ➔ Use <span class="vocab-pinyin" style="width: auto;">qùnián</span> (last year)
+                            <br>• <span class="error-example">xià nián</span> ➔ Use <span class="vocab-pinyin" style="width: auto;">míngnián</span> (next year)
+                            <br>• <span class="error-example">shàng tiān</span> ➔ Use <span class="vocab-pinyin" style="width: auto;">zuótiān</span> (yesterday)
+                            <br>• <span class="error-example">xià tiān</span> ➔ Use <span class="vocab-pinyin" style="width: auto;">míngnián</span> (tomorrow)
                         </div>
                     </div>
                 </div>
@@ -472,32 +485,32 @@
                 <div class="card-title">🎯 Key Q&A Reinforcement: Asking Dates</div>
                 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q1: Tā nǎ nián chūshēng? <span class="translation">(Which year was he born?)</span></div>
+                    <div class="qa-q">Q1: Tā <span class="grammar-hl">nǎ nián</span> chūshēng? <span class="translation">(Which year was he born?)</span></div>
                     <div class="qa-a">A: Tā yī jiǔ bā èr nián chūshēng. <span class="translation">(He was born in 1982.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q2: Jīntiān shì jǐ yuè jǐ hào? <span class="translation">(What date is today?)</span></div>
+                    <div class="qa-q">Q2: Jīntiān shì <span class="grammar-hl">jǐ yuè jǐ hào</span>? <span class="translation">(What date is today?)</span></div>
                     <div class="qa-a">A: Jīntiān shì shíyuè èrshíqī hào. <span class="translation">(Today is October 27th.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q3: Nǐ de shēngri shì nǎ tiān? <span class="translation">(When/which day is your birthday?)</span></div>
+                    <div class="qa-q">Q3: Nǐ de shēngri shì <span class="grammar-hl">nǎ tiān</span>? <span class="translation">(When/which day is your birthday?)</span></div>
                     <div class="qa-a">A: Wǒ de shēngri shì bāyuè èrshíyī hào. <span class="translation">(My birthday is August 21st.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q4: Míngtiān shì xīngqī jǐ? <span class="translation">(What day of the week is tomorrow?)</span></div>
+                    <div class="qa-q">Q4: Míngtiān shì <span class="grammar-hl">xīngqī jǐ</span>? <span class="translation">(What day of the week is tomorrow?)</span></div>
                     <div class="qa-a">A: Míngtiān shì xīngqīsì. <span class="translation">(Tomorrow is Thursday.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q5: Nǐ shénme shíhou yǒu kè? <span class="translation">(When do you have class?)</span></div>
+                    <div class="qa-q">Q5: Nǐ <span class="grammar-hl">shénme shíhou</span> yǒu kè? <span class="translation">(When do you have class?)</span></div>
                     <div class="qa-a">A: Wǒ míngtiān shàngwǔ yǒu kè. <span class="translation">(I have class tomorrow morning.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q6: Nǐ shàngwǔ jǐ diǎn yǒu kè? <span class="translation">(What time do you have class in the morning?)</span></div>
+                    <div class="qa-q">Q6: Nǐ shàngwǔ <span class="grammar-hl">jǐ diǎn</span> yǒu kè? <span class="translation">(What time do you have class in the morning?)</span></div>
                     <div class="qa-a">A: Wǒ shàngwǔ jiǔ diǎn yǒu kè. <span class="translation">(I have class at 9 o'clock in the morning.)</span></div>
                 </div>
 
@@ -574,12 +587,12 @@
                     <div style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
                         <div style="background: white; padding: 12px; border-radius: 8px; border-left: 5px solid var(--correct-green); flex: 1;">
                             <span style="font-weight: bold; color: var(--correct-green);">Adults & Peers:</span>
-                            <br><span class="vocab-pinyin">Nǐ jīnnián <span class="grammar-hl">duō dà</span>?</span>
+                            <br><span class="vocab-pinyin" style="width: auto;">Nǐ jīnnián <span class="grammar-hl">duō dà</span>?</span>
                             <br><span style="font-size: 0.95rem; color: var(--text-sub);">Most natural way for adults.</span>
                         </div>
                         <div style="background: white; padding: 12px; border-radius: 8px; border-left: 5px solid #BE185D; flex: 1;">
                             <span style="font-weight: bold; color: #BE185D;">Children (Under 10):</span>
-                            <br><span class="vocab-pinyin">Nǐ jīnnián <span class="grammar-hl">jǐ suì</span>?</span>
+                            <br><span class="vocab-pinyin" style="width: auto;">Nǐ jīnnián <span class="grammar-hl">jǐ suì</span>?</span>
                             <br><span style="font-size: 0.95rem; color: var(--text-sub);">Specifically for young kids.</span>
                         </div>
                     </div>
@@ -587,7 +600,7 @@
 
                 <div class="rule-box" style="margin-top: 1rem;">
                     <strong style="font-size: 1.15rem; color: var(--primary-color);">2. Sentences with Nominal Predicate (Pg 143):</strong>
-                    <p style="margin-top: 5px;">Numeral-measure phrases (like age) function directly as predicate. NO verb "<span class="vocab-pinyin">shì</span>" is needed!</p>
+                    <p style="margin-top: 5px;">Numeral-measure phrases (like age) function directly as predicate. NO verb "<span class="vocab-pinyin" style="width: auto;">shì</span>" is needed!</p>
                     <div style="background: white; padding: 10px 15px; border-radius: 8px; margin-top: 8px;">
                         <span class="correct-example">✔ Tā jīnnián èrshí suì.</span>
                         <br><span class="error-example">✘ Tā jīnnián shì èrshí suì. (Do NOT use shì!)</span>
@@ -597,13 +610,13 @@
                 <div class="rule-box" style="margin-top: 1rem;">
                     <strong style="font-size: 1.15rem; color: var(--primary-color);">3. Asking Hometown vs Nationality:</strong>
                     <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 10px;">
-                        <div style="background: white; padding: 10px 15px; border-radius: 8px;">
+                        <div class="pinyin-box">
                             <strong>A. Asking Hometown / Place of Birth:</strong>
-                            <br><span class="grammar-hl">Tā shì nǎr rén?</span> ➔ <span class="vocab-pinyin">Tā shì Běijīng rén.</span>
+                            <br><span class="grammar-hl">Tā shì nǎr rén?</span> ➔ Tā shì Běijīng rén.
                         </div>
-                        <div style="background: white; padding: 10px 15px; border-radius: 8px;">
+                        <div class="pinyin-box">
                             <strong>B. Asking Nationality:</strong>
-                            <br><span class="grammar-hl">Tā shì nǎ guó rén?</span> ➔ <span class="vocab-pinyin">Tā shì Zhōngguó rén.</span>
+                            <br><span class="grammar-hl">Tā shì nǎ guó rén?</span> ➔ Tā shì Zhōngguó rén.
                         </div>
                     </div>
                 </div>
@@ -612,8 +625,8 @@
                     <strong style="font-size: 1.15rem; color: #9D174D;">4. Culture Note: Chinese Zodiac "<span class="grammar-hl" style="background-color: #FBCFE8; color: #9D174D;">shǔ</span>" (Pg 134)</strong>
                     <ul style="margin-top: 6px; margin-left: 20px; color: #831843;">
                         <li>12-year animal cycle: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig.</li>
-                        <li>Grammar structure matches surname (<span class="vocab-pinyin">xìng</span>): Direct verb <span class="vocab-pinyin">shǔ</span> + Animal Noun (NO <span class="vocab-pinyin">shì</span> needed!).</li>
-                        <li>Example: <span class="vocab-pinyin">Sòng Huá shǔ gǒu.</span> / <span class="vocab-pinyin">Wǒ shǔ lóng.</span></li>
+                        <li>Grammar structure matches surname (<span class="vocab-pinyin" style="width: auto;">xìng</span>): Direct verb <span class="vocab-pinyin" style="width: auto;">shǔ</span> + Animal Noun (NO <span class="vocab-pinyin" style="width: auto;">shì</span> needed!).</li>
+                        <li>Example: <span class="vocab-pinyin" style="width: auto;">Sòng Huá shǔ gǒu.</span> / <span class="vocab-pinyin" style="width: auto;">Wǒ shǔ lóng.</span></li>
                     </ul>
                 </div>
             </div>
@@ -623,22 +636,22 @@
                 <div class="card-title">🎯 Key Q&A Reinforcement: Asking Personal Details</div>
                 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q1: Tā jīnnián duō dà? <span class="translation">(How old is he this year? - Adults / General)</span></div>
+                    <div class="qa-q">Q1: Tā jīnnián <span class="grammar-hl">duō dà</span>? <span class="translation">(How old is he this year? - Adults / General)</span></div>
                     <div class="qa-a">A: Tā jīnnián èrshí suì. <span class="translation">(He is 20 years old this year.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q2: Nǐ dìdi jīnnián jǐ suì? <span class="translation">(How old is your younger brother? - Children under 10)</span></div>
+                    <div class="qa-q">Q2: Nǐ dìdi jīnnián <span class="grammar-hl">jǐ suì</span>? <span class="translation">(How old is your younger brother? - Children under 10)</span></div>
                     <div class="qa-a">A: Tā jīnnián sān suì. <span class="translation">(He is 3 years old this year.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q3: Tā shì nǎr rén? <span class="translation">(Where is he from?)</span></div>
+                    <div class="qa-q">Q3: Tā shì <span class="grammar-hl">nǎr rén</span>? <span class="translation">(Where is he from?)</span></div>
                     <div class="qa-a">A: Tā shì Běijīng rén. <span class="translation">(He is from Beijing.)</span></div>
                 </div>
 
                 <div style="margin-bottom: 12px;">
-                    <div class="qa-q">Q4: Nǐ shǔ shénme? <span class="translation">(What is your zodiac sign?)</span></div>
+                    <div class="qa-q">Q4: Nǐ <span class="grammar-hl">shǔ shénme</span>? <span class="translation">(What is your zodiac sign?)</span></div>
                     <div class="qa-a">A: Wǒ shǔ gǒu. <span class="translation">(I was born in the year of the Dog.)</span></div>
                 </div>
             </div>
@@ -841,7 +854,7 @@
                     <strong style="font-size: 1.15rem; color: var(--primary-color);">1. Usage Rules for "<span class="grammar-hl">cānjiā</span>":</strong>
                     <div style="background: white; padding: 12px; border-radius: 8px; margin-top: 10px;">
                         <span class="correct-example">✔ cānjiā jùhuì</span> (Used for parties, events, activities)
-                        <br><span class="error-example">✘ cānjiā Hànyǔ kè</span> (NOT used for classes! Use <span class="vocab-pinyin">shàng kè</span> or <span class="vocab-pinyin">yǒu kè</span> instead.)
+                        <br><span class="error-example">✘ cānjiā Hànyǔ kè</span> (NOT used for classes! Use <span class="vocab-pinyin" style="width: auto;">shàng kè</span> or <span class="vocab-pinyin" style="width: auto;">yǒu kè</span> instead.)
                     </div>
                 </div>
 
@@ -851,12 +864,12 @@
                         <div style="background: white; padding: 12px; border-radius: 8px; flex: 1;">
                             <strong style="color: var(--primary-color);">zhù (Wish):</strong>
                             <br><span style="font-size: 0.95rem; color: var(--text-sub);">Directly wishing someone well (casual/everyday):</span>
-                            <br><span class="vocab-pinyin" style="font-size: 1.1rem;">Zhù nǐ shēngri kuàilè!</span>
+                            <br><span class="vocab-pinyin" style="font-size: 1.1rem; width: auto;">Zhù nǐ shēngri kuàilè!</span>
                         </div>
                         <div style="background: white; padding: 12px; border-radius: 8px; flex: 1;">
                             <strong style="color: var(--answer-blue);">zhùhè (Congratulate):</strong>
                             <br><span style="font-size: 0.95rem; color: var(--text-sub);">Formal congratulation on an event:</span>
-                            <br><span class="vocab-pinyin" style="font-size: 1.1rem; color: var(--answer-blue);">zhùhè tā de shēngri</span>
+                            <br><span class="vocab-pinyin" style="font-size: 1.1rem; color: var(--answer-blue); width: auto;">zhùhè tā de shēngri</span>
                         </div>
                     </div>
                 </div>
@@ -867,12 +880,12 @@
                         <div style="background: white; padding: 12px; border-radius: 8px; flex: 1;">
                             <strong style="color: var(--primary-color);">kuàilè (Happy / Festive):</strong>
                             <br><span style="font-size: 0.95rem; color: var(--text-sub);">Long-term happiness or festive wishes:</span>
-                            <br><span class="vocab-pinyin" style="font-size: 1.05rem;">shēngri kuàilè</span>
+                            <br><span class="vocab-pinyin" style="font-size: 1.05rem; width: auto;">shēngri kuàilè</span>
                         </div>
                         <div style="background: white; padding: 12px; border-radius: 8px; flex: 1;">
                             <strong style="color: var(--answer-blue);">gāoxìng (Glad / Pleased):</strong>
                             <br><span style="font-size: 0.95rem; color: var(--text-sub);">Instant feeling / mood right now:</span>
-                            <br><span class="vocab-pinyin" style="font-size: 1.05rem; color: var(--answer-blue);">Nǐmen lái, wǒ hěn gāoxìng.</span>
+                            <br><span class="vocab-pinyin" style="font-size: 1.05rem; color: var(--answer-blue); width: auto;">Nǐmen lái, wǒ hěn gāoxìng.</span>
                         </div>
                     </div>
                 </div>
@@ -880,9 +893,9 @@
                 <div class="rule-box" style="margin-top: 1rem;">
                     <strong style="font-size: 1.15rem; color: var(--primary-color);">4. Time Clause Structure: "<span class="grammar-hl">... de shíhou</span>" (When / While)</strong>
                     
-                    <div style="background: white; padding: 14px 20px; border-radius: 8px; margin-top: 12px; line-height: 2.2; font-family: var(--pinyin-font);">
+                    <div class="pinyin-box">
                         <div>• Zhōngguó rén <strong>guò shēngri de shíhou</strong> chī dàngāo ma? <span class="translation" style="font-size: 0.95rem;">(Do Chinese people eat cake when celebrating birthdays?)</span></div>
-                        <div>• <strong>Chīfàn de shíhou</strong>, wǒ bù kàn shū. <span class="translation" style="font-size: 0.95rem;">(When eating, I don't read books.)</span></div>
+                        <div>• <strong>Chīfàn de shíhou</strong>, wǒ bú kàn shū. <span class="translation" style="font-size: 0.95rem;">(When eating, I don't read books.)</span></div>
                     </div>
                 </div>
             </div>
@@ -975,10 +988,10 @@
                     <p style="margin-top: 5px;">Placed at the end of a statement to propose a suggestion or seek advice.</p>
                     
                     <div style="background: white; padding: 12px; border-radius: 8px; margin-top: 10px;">
-                        <span class="vocab-pinyin" style="font-size: 1.15rem;">Wǒ mǎi yí ge dà dàngāo, <strong>hǎo ma</strong>?</span>
+                        <span class="vocab-pinyin" style="font-size: 1.15rem; width: auto;">Wǒ mǎi yí ge dà dàngāo, <strong>hǎo ma</strong>?</span>
                         <br><br>
-                        <strong>Affirmative Answers:</strong> <span class="vocab-pinyin" style="color: var(--correct-green);">Hǎo a. / Hǎo. / Tài hǎo le.</span>
-                        <br><strong>Polite Refusal:</strong> <span class="vocab-pinyin" style="color: var(--error-red);">Bù yòng le. / Duìbuqǐ, wǒ méiyǒu shíjiān.</span>
+                        <strong>Affirmative Answers:</strong> <span class="vocab-pinyin" style="color: var(--correct-green); width: auto;">Hǎo a. / Hǎo. / Tài hǎo le.</span>
+                        <br><strong>Polite Refusal:</strong> <span class="vocab-pinyin" style="color: var(--error-red); width: auto;">Bú yòng le. / Duìbuqǐ, wǒ méiyǒu shíjiān.</span>
                     </div>
                 </div>
 
@@ -989,10 +1002,10 @@
                         <div style="font-weight: bold; color: var(--primary-color);">+</div>
                         <div class="slot slot-verb"><span class="slot-label">Action</span>Verb</div>
                     </div>
-                    <div style="background: white; padding: 12px; border-radius: 8px; margin-top: 10px;" class="vocab-pinyin">
-                        • zài lái (come again)
-                        <br>• zài chī (eat again)
-                        <br>• Shíyīyuè shí'èr hào wǒmen <strong>zài lái</strong> chī shòumiàn.
+                    <div class="pinyin-box">
+                        <div>• zài lái (come again)</div>
+                        <div>• zài chī (eat again)</div>
+                        <div>• Shíyīyuè shí'èr hào wǒmen <strong>zài lái</strong> chī shòumiàn.</div>
                     </div>
                 </div>
             </div>
